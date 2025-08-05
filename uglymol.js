@@ -7828,6 +7828,9 @@ Viewer.prototype.load_file = function load_file (url, options,
 
 Viewer.prototype.set_dropzone = function set_dropzone (zone, callback) {
   var self = this;
+  zone.addEventListener('dragstart', function (e) {
+    e.preventDefault();
+  });
   zone.addEventListener('dragover', function (e) {
     e.stopPropagation();
     e.preventDefault();

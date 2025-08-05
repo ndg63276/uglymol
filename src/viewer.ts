@@ -1537,6 +1537,9 @@ export class Viewer {
 
   set_dropzone(zone: HTMLElement, callback: (arg: File) => void) {
     const self = this;
+    zone.addEventListener('dragstart', function (e: DragEvent) {
+      e.preventDefault();
+    });
     zone.addEventListener('dragover', function (e: DragEvent) {
       e.stopPropagation();
       e.preventDefault();
